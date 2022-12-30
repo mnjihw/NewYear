@@ -1,0 +1,64 @@
+<html>
+
+<body style="background-image: url('a.jpg'); background-size: contain; background-repeat: no-repeat;">
+    <div class="snowflake"></div>
+</body>
+<style>
+    @keyframes fall {
+        from {}
+
+        to {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }
+
+    body {
+        background-color: black;
+    }
+
+    .snowflake {
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: -8px;
+    }
+</style>
+<script>
+    const body = document.querySelector('body');
+    const MIN_DURATION = 5;
+
+    const greet = () => {
+        alert('2023년 계묘년 새해가 밝았습니다!! 새해 복 많이 받으시고 계획한 모든 일들이 잘 이루어지길 바라요. 행복하세용~~');
+    };
+
+    const makeSnowflake = () => {
+        const snowflake = document.createElement('div');
+        const delay = Math.random() * 10;
+        const initialOpacity = Math.random();
+        const duration = Math.random() * 20 + MIN_DURATION;
+
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * window.screen.width}px`;
+        snowflake.style.animationDelay = `${delay}s`;
+        snowflake.style.opacity = initialOpacity;
+        snowflake.style.animation = `fall ${duration}s linear`;
+
+        body.appendChild(snowflake);
+        setTimeout(() => {
+            body.removeChild(snowflake);
+            makeSnowflake();
+        }, (duration + delay) * 1000);
+    };
+
+    for (let i = 0; i < 500; ++i) {
+        setTimeout(makeSnowflake, 50 * i);
+    }
+    setTimeout(greet, 2000);
+
+</script>
+
+
+</html>
