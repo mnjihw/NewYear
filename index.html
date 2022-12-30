@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta property="og:title" content="눌러방">
-        <meta property="og:image" content="thumbnail.png"
+        <meta property="og:image" content="thumbnail.png">
     </head>
 
 <body style="background-image: url('a.jpg'); background-size: contain; background-repeat: no-repeat;">
@@ -45,7 +45,7 @@
         const duration = Math.random() * 20 + MIN_DURATION;
 
         snowflake.classList.add('snowflake');
-        snowflake.style.left = `${Math.random() * window.screen.width}px`;
+        snowflake.style.left = `${Math.random() * window.innerWidth}px`;
         snowflake.style.animationDelay = `${delay}s`;
         snowflake.style.opacity = initialOpacity;
         snowflake.style.animation = `fall ${duration}s linear`;
